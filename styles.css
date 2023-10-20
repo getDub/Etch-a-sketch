@@ -29,6 +29,10 @@
     background-color: blue;
 }
 
+.rowUnits:hover {
+    background-color: red;
+}
+
 .rowUnit:after {
     content: '';
     display: block;

@@ -24,14 +24,14 @@
 .rowUnit {
     display: flex;
     flex: 1;
-    height: auto;
+    height: 100px;
     background-color: blue;
     
     
 }
 
-.rowUnit:after {
+/* .rowUnit:after {
     content: '';
     display: block;
     padding-bottom: 100%;
-}
+} */
