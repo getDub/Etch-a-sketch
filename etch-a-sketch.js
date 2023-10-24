@@ -1,11 +1,18 @@
 const mainContainer = document.querySelector('.mainContainer');
 const densityBtn = document.querySelector('.gridDensityBtn')
 
-
+//Listen for a click on the grid density button
 densityBtn.addEventListener('click', changeGridDensity);
-
+//Function to change the amount of squares in the gird
 function changeGridDensity () {
-    prompt(`How many squares per side for the new grid?`)
+    //Get user input for squares per side on the grid
+    let density = prompt (`How many squares per side for the new grid?`);
+    //Limit of 100 squares
+    if (density > 100) {
+        alert(`Please choose a number below 100`)
+    }
+    //Put an HTML inline style for the mainContainer div - takes a string so back ticks work! woot.
+    mainContainer.setAttribute('style', `grid-template-columns: repeat(${density}, 2fr); grid-template-rows: repeat(${density}, 2fr);`);
 }
 
 //Create grid
