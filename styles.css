@@ -1,40 +1,21 @@
 .mainContainer {
-    display: flex;
-    flex-direction: column;
+    display: inline-grid;
     background-color: brown;
+    /* make sure there is no space between repeat and the bracket. */
+    grid-template-rows: repeat(16, 1fr);
+    grid-template-columns: repeat(16, 1fr);
     
 }
 
-.columns {
-    display: flex;
-    flex-direction: column;
-    /* align-content: center; */
+.cell {
+    width: 30px;
+    height: 30px;
     background-color: aquamarine;
+    border: solid;
+    border-width: 0.5px;
     
-    flex: 1;
 }
 
-.rows {
-    display: flex;
-    background-color: antiquewhite;
-    justify-content: center;
-    /* height: 100px; */
-    flex: 1;
-}
-
-.rowUnits {
-    display: flex;
-    flex: 1;
-    height: 100px;
-    background-color: blue;
-}
-
-.rowUnits:hover {
-    background-color: red;
-}
-
-.rowUnit:after {
-    content: '';
-    display: block;
-    padding-bottom: 100%;
+.cellColourChange {
+    background-color: black;
 }
