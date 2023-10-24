@@ -1,7 +1,14 @@
 const mainContainer = document.querySelector('.mainContainer');
+const densityBtn = document.querySelector('.gridDensityBtn')
 
 
-//Create gird
+densityBtn.addEventListener('click', changeGridDensity);
+
+function changeGridDensity () {
+    prompt(`How many squares per side for the new grid?`)
+}
+
+//Create grid
 for(let i = 0; i < 256; i++){
     //Create div element and call it cell
     const cell = document.createElement('div');
@@ -14,5 +21,6 @@ for(let i = 0; i < 256; i++){
     //Create a function to add another class name to the cell div. This new class is in the CSS style with a different background color to the default.
     function cellColour(){
         cell.classList.add('cellColourChange');
-    }
-}
+    };
+};
+
