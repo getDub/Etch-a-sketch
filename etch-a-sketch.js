@@ -8,6 +8,7 @@ densityBtn.addEventListener('click', changeGridDensity);
 
 //Function to change the amount of squares in the gird
 function changeGridDensity () {
+    
     //Call function to erase children of mainContainer if mainContainer has children
     eraseChildren(mainContainer);
     //Get user input for squares per side on the grid
@@ -52,10 +53,10 @@ function createGridCells (densityValue){
     
 }
 
-
+//If the mainContainer div has a child is true then remove child from parent till statement is no longer true.
 function eraseChildren (parent) {
     while (parent.firstChild){
         parent.removeChild(parent.firstChild);
     }
 }
-    // mainContainer.removeChild(mainContainer.firstChild)
+    
