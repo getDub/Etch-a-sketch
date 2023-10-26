@@ -2,6 +2,12 @@ const mainContainer = document.querySelector('.mainContainer');
 const densityBtn = document.querySelector('.gridDensityBtn')
 
 
+//Default grid layout is 16 x 16
+for(let i = 0; i < 256; i++){
+const defaultCells = document.createElement('div');
+defaultCells.classList.add('cell');
+mainContainer.appendChild(defaultCells);
+}
 
 //Listen for a click on the grid density button
 densityBtn.addEventListener('click', changeGridDensity);
@@ -30,6 +36,8 @@ function changeGridDensity () {
 //Create grid
 function createGridCells (densityValue){
     
+   
+
     for(let i = 0; i < densityValue * densityValue; i++){
         
         //Create div element and call it cell
