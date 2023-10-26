@@ -4,10 +4,20 @@ const densityBtn = document.querySelector('.gridDensityBtn')
 
 //Default grid layout is 16 x 16
 for(let i = 0; i < 256; i++){
+//Create default grids can call it defualtCells
 const defaultCells = document.createElement('div');
+//Give div CSS class name
 defaultCells.classList.add('cell');
+//Append to main div
 mainContainer.appendChild(defaultCells);
+//Add EventListner to div element just created.
+defaultCells.addEventListener('mouseover', defaultCellColour);
+//
+function defaultCellColour () {
+    defaultCells.classList.add('cellColourChange');
 }
+}
+
 
 //Listen for a click on the grid density button
 densityBtn.addEventListener('click', changeGridDensity);
@@ -51,12 +61,12 @@ function createGridCells (densityValue){
 
         //Apply a mouseover event listener to the cell div with a callback function named cellColour
         cell.addEventListener('mouseover', cellColour);
-
-        //Create a function to add another class name to the cell div. This new class is in the CSS style with a different background color to the default.
-        function cellColour(){
-            cell.classList.add('cellColourChange');
-        };
         
+        //Create a function to add another class name to the cell div. This new class is in the CSS style with a different background color to the default.
+        // let changeCellDivColour = cellColour(cell);
+        function cellColour () {
+            cell.classList.add('cellColourChange');
+        }
     };
     
 }
@@ -68,3 +78,7 @@ function eraseChildren (parent) {
     }
 }
     
+
+
+
+
