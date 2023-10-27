@@ -79,9 +79,19 @@ function createGridCells (densityValue){
             cell.addEventListener('mouseover', randomColouriser)
         };
 
-        function randomColouriser(){
-        cell.classList.add('randomColours');
+        function randoNo (number) {
+            return Math.floor(Math.random() * (number + 1));
         };
+
+
+        function randomColouriser(e){
+            const randoCol = `rgb(${randoNo(255)}, ${randoNo(255)}, ${randoNo(255)})`;
+            e.target.style.backgroundColor = randoCol;
+            console.log(e)
+        // cell.classList.add('randomColours');
+        };
+
+       
     };
     
 }
@@ -99,3 +109,4 @@ function randomColouriser () {
     
     cell.setAttribute('class', 'randomColours')
 };
+
