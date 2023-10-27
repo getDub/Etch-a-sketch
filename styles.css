@@ -22,3 +22,8 @@
 .cellColourChange {
     background-color: black;
 }
+
+
+.randomColours {
+    background-color: rgba(236, 125, 50, 100%);
+}

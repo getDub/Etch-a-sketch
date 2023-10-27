@@ -1,26 +1,29 @@
 const mainContainer = document.querySelector('.mainContainer');
-const densityBtn = document.querySelector('.gridDensityBtn')
+const densityBtn = document.querySelector('.gridDensityBtn');
+const randomColour = document.querySelector('.randomColour');
 
-
-//Default grid layout is 16 x 16
+// //Default grid layout is 16 x 16
 for(let i = 0; i < 256; i++){
-//Create default grids can call it defualtCells
-const defaultCells = document.createElement('div');
-//Give div CSS class name
-defaultCells.classList.add('cell');
-//Append to main div
-mainContainer.appendChild(defaultCells);
-//Add EventListner to div element just created.
-defaultCells.addEventListener('mouseover', defaultCellColour);
-//
-function defaultCellColour () {
-    defaultCells.classList.add('cellColourChange');
-}
+    //Create default grids can call it defualtCells
+    const defaultCells = document.createElement('div');
+    //Give div CSS class name
+    defaultCells.classList.add('cell');
+    //Append to main div
+    mainContainer.appendChild(defaultCells);
+    //Add EventListner to div element just created.
+    defaultCells.addEventListener('mouseover', defaultCellColour);
+    //
+    function defaultCellColour () {
+        defaultCells.classList.add('cellColourChange');
+    }
 }
 
 
 //Listen for a click on the grid density button
 densityBtn.addEventListener('click', changeGridDensity);
+
+
+
 
 //Function to change the amount of squares in the gird
 function changeGridDensity () {
@@ -47,7 +50,7 @@ function changeGridDensity () {
 function createGridCells (densityValue){
     
    
-
+    
     for(let i = 0; i < densityValue * densityValue; i++){
         
         //Create div element and call it cell
@@ -61,12 +64,24 @@ function createGridCells (densityValue){
 
         //Apply a mouseover event listener to the cell div with a callback function named cellColour
         cell.addEventListener('mouseover', cellColour);
+
         
         //Create a function to add another class name to the cell div. This new class is in the CSS style with a different background color to the default.
-        // let changeCellDivColour = cellColour(cell);
         function cellColour () {
-            cell.classList.add('cellColourChange');
-        }
+            cell.classList.add( 'cellColourChange' );
+        } 
+
+        //Choose random colour mode
+        randomColour.addEventListener('click', randomColMode);
+
+        //Create Colour Randomiser
+        function randomColMode () {
+            cell.addEventListener('mouseover', randomColouriser)
+        };
+
+        function randomColouriser(){
+        cell.classList.add('randomColours');
+        };
     };
     
 }
@@ -79,6 +94,8 @@ function eraseChildren (parent) {
 }
     
 
-
-
-
+//Create Colour Randomiser
+function randomColouriser () {
+    
+    cell.setAttribute('class', 'randomColours')
+};
