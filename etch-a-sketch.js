@@ -1,6 +1,7 @@
 const mainContainer = document.querySelector('.mainContainer');
 const densityBtn = document.querySelector('.gridDensityBtn');
 const randomColour = document.querySelector('.randomColour');
+const gradientToBlack = document.querySelector('.gradient10');
 
 // //Default grid layout is 16 x 16
 for(let i = 0; i < 256; i++){
@@ -83,15 +84,26 @@ function createGridCells (densityValue){
             return Math.floor(Math.random() * (number + 1));
         };
 
-
+        
         function randomColouriser(e){
             const randoCol = `rgb(${randoNo(255)}, ${randoNo(255)}, ${randoNo(255)})`;
             e.target.style.backgroundColor = randoCol;
             console.log(e)
-        // cell.classList.add('randomColours');
         };
 
-       
+        //Gradient Selection 
+        gradientToBlack.addEventListener('click', gradientMode);
+
+        function gradientMode () {
+            cell.addEventListener('mouseover', gradient);
+        }
+
+        function gradient (e) {
+            const randoColGrad = `rgb(${randoNo(255 / 10)}, ${randoNo(255 / 10)}, ${randoNo(255 / 10)})`
+            e.target.style.backgroundColor = randoColGrad;
+            console.log(e);
+        }
+        
     };
     
 }
@@ -110,3 +122,9 @@ function randomColouriser () {
     cell.setAttribute('class', 'randomColours')
 };
 
+//Find out the difference between the random number generated and 0.
+//Divide that answer by 10 first and subtract that amount from the initial random number. 
+//Our aim is to get to 0 in 10 mouse overs.
+//Repeat this step for the next mouseover event but divide by 20. Third time by 30 and so on.
+//Will have to be done on  all rgb chanels.
+//Where does the loop have to go through?

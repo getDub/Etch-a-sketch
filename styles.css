@@ -25,5 +25,9 @@
 
 
 .randomColours {
-    background-color: rgba(236, 125, 50, 100%);
+    background-color: rgb(182, 78, 78);
+}
+
+.gradient10 {
+    background-color: rgb(19, 213, 58);
 }
